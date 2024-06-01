@@ -11,6 +11,7 @@ interface IProps {
 interface PerspectiveViewerElement extends HTMLElement {
   load: (table: Table) => void,
 }
+
 class Graph extends Component<IProps, {}> {
   table: Table | undefined;
 
@@ -26,10 +27,10 @@ class Graph extends Component<IProps, {}> {
       price_abc: 'float',
       price_def: 'float',
       ratio: 'float',
-      upper_bound: 'float',
-      lower_bound: ' float',
-      trigger_alert: 'float',
       timestamp: 'date',
+      upper_bound: 'float',
+      lower_bound: 'float',
+      trigger_alert: 'float'
     };
 
     if (window.perspective && window.perspective.worker()) {
@@ -45,9 +46,10 @@ class Graph extends Component<IProps, {}> {
         price_abc: 'avg',
         price_def: 'avg',
         ratio: 'avg',
-        upper_count: 'avg',
-        lower_bound: 'avg',
         timestamp: 'distinct count',
+        upper_bound: 'avg',
+        lower_bound: 'avg',
+        trigger_alert: 'avg'
       }));
     }
   }
